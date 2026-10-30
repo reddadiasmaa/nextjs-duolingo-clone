@@ -1,15 +1,9 @@
 import Link from "next/link";
 import Image from "next/image";
-import {
-  ClerkLoading,
-  ClerkLoaded,
-  UserButton,
-} from "@clerk/nextjs";
-import { Loader } from "lucide-react";
 
 import { cn } from "@/lib/utils";
-
 import { SidebarItem } from "./sidebar-item";
+import { UserProfileButton } from "./user-profile-button";
 
 type Props = {
   className?: string;
@@ -51,13 +45,8 @@ export const Sidebar = ({ className }: Props) => {
           iconSrc="/shop.svg"
         />
       </div>
-      <div className="p-4">
-        <ClerkLoading>
-          <Loader className="h-5 w-5 text-muted-foreground animate-spin" />
-        </ClerkLoading>
-        <ClerkLoaded>
-          <UserButton afterSignOutUrl="/" />
-        </ClerkLoaded>
+      <div className="p-4 border-t">
+        <UserProfileButton />
       </div>
     </div>
   );

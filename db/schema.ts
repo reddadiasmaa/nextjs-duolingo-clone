@@ -1,6 +1,20 @@
 import { relations } from "drizzle-orm";
 import { boolean, integer, pgEnum, pgTable, serial, text, timestamp } from "drizzle-orm/pg-core";
 
+export const users = pgTable("users", {
+  id: text("id").primaryKey(),
+  name: text("name").notNull(),
+  email: text("email").notNull().unique(),
+  password: text("password").notNull(),
+  imageSrc: text("image_src").default("/mascot.svg"),
+  age: integer("age"),
+  targetLanguage: text("target_language"),
+  learningReason: text("learning_reason"),
+  educationLevel: text("education_level"),
+  onboardingCompleted: boolean("onboarding_completed").default(false).notNull(),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+});
+
 export const courses = pgTable("courses", {
   id: serial("id").primaryKey(),
   title: text("title").notNull(),

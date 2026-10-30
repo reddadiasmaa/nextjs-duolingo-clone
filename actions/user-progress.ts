@@ -3,7 +3,7 @@
 import { and, eq } from "drizzle-orm";
 import { redirect } from "next/navigation";
 import { revalidatePath } from "next/cache";
-import { auth, currentUser } from "@clerk/nextjs";
+import { auth, currentUser } from "@/lib/auth";
 
 import db from "@/db/drizzle";
 import { POINTS_TO_REFILL } from "@/constants";
